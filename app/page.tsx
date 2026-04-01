@@ -64,6 +64,7 @@ export default function Home() {
 
   // ── Keyboard shortcut: Space to toggle ────────────────────────────────────
   useEffect(() => {
+    console.log("Haha")
     const handleKey = (e: KeyboardEvent) => {
       // Only trigger if not focused on textarea or input
       const tag = (e.target as HTMLElement).tagName;
