@@ -1,2 +1,4 @@
-# voice-to-text
-This feature converts your voice into text in real time
+# 🎙️ Real-Time Voice-to-Text
+
+work only chrome
+
