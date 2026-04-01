@@ -97,7 +97,6 @@ export default function MicButton({
             boxShadow: isListening
               ? '0 0 40px var(--accent-glow), 0 8px 32px var(--shadow)'
               : '0 4px 24px var(--shadow)',
-            focusVisible: { ringColor: 'var(--accent)' },
           }}
         >
           {isListening ? (
