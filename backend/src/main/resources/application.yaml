@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: backend
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/monitor_claude_usage}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:MySqL$168}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+
+server:
+  port: ${SERVER_PORT:8888}
+
+app:
+  # Optional, cosmetic only: shown in the sidebar to label whose dashboard this is.
+  # No login/accounts - see claude.md "Single-tenant, no auth" note.
+  owner-email: ${USER_EMAIL:}
+  encryption:
+    # 32-byte key, base64-encoded (generate with: openssl rand -base64 32).
+    # The default below is for local dev ONLY - override in every real deployment.
+    secret: ${APP_ENCRYPTION_SECRET:MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=}
+  cors:
+    allowed-origins: ${APP_CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:3001}
+  sync:
+    cron: ${APP_SYNC_CRON:0 0 * * * *}
+    lookback-days: ${APP_SYNC_LOOKBACK_DAYS:7}
+  anthropic:
+    base-url: ${ANTHROPIC_API_BASE_URL:https://api.anthropic.com}
+    version: ${ANTHROPIC_API_VERSION:2023-06-01}
+
+logging:
+  level:
+    com.example.backend: ${LOG_LEVEL:INFO}
